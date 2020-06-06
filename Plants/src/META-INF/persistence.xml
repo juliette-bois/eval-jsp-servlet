@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+  <persistence-unit name="crudMysql" transaction-type="JTA">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <class>models.Plant</class>
+
+    <jta-data-source>java:/MySqlDS</jta-data-source>
+
+    <properties>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect" />
+      <property name="hibernate.max_fetch_depth" value="3" />
+      <property name="hibernate.hbm2ddl.auto" value="update" />
+      <property name="hibernate.show_sql" value="true" />
+    </properties>
+  </persistence-unit>
+</persistence>
