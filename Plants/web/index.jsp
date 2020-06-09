@@ -11,6 +11,8 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <a href="${pageContext.request.contextPath}/home">
+    <button type="button">HOME</button>
+  </a>
   </body>
 </html>
