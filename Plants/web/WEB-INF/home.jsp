@@ -8,40 +8,41 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Title</title>
+  <title>Plants</title>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-  <table>
+  <table class="table-auto">
     <thead>
       <tr>
-        <th>Id</th>
-        <th>Nom</th>
-        <th>Nom latin</th>
-        <th>Famille</th>
-        <th>Description</th>
+        <th class="px-4 py-2">Id</th>
+        <th class="px-4 py-2">Nom</th>
+        <th class="px-4 py-2">Nom latin</th>
+        <th class="px-4 py-2">Famille</th>
+        <th class="px-4 py-2">Description</th>
       </tr>
     </thead>
     <tbody>
     <%
       for (Plant plant : plantList) {
     %>
-    <tr>
-      <th><%=plant.getId()%></th>
-      <td><%= plant.getCommonName() %></td>
-      <td><%= plant.getLatinName() %></td>
-      <td><%= plant.getFamily() %></td>
-      <td><%= plant.getDescription() %></td>
+    <tr class="bg-gray-100">
+      <th class="border px-4 py-2"><%=plant.getId()%></th>
+      <td class="border px-4 py-2"><%= plant.getCommonName() %></td>
+      <td class="border px-4 py-2"><%= plant.getLatinName() %></td>
+      <td class="border px-4 py-2"><%= plant.getFamily() %></td>
+      <td class="border px-4 py-2"><%= plant.getDescription() %></td>
       <td>
         <a href="${pageContext.request.contextPath}/plant?id=<%=plant.getId()%>">
-          <button type="button">Voir</button>
+          <button type="button" class="m-6 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Voir</button>
         </a>
       </td>
       <td>
-        <button data-id="<%=plant.getId()%>" type="button">Supprimer</button>
+        <button data-id="<%=plant.getId()%>" type="button" class="delete-plant m-6 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Supprimer</button>
       </td>
       <td>
         <a href="${pageContext.request.contextPath}/plant/update?id=<%=plant.getId()%>">
-          <button type="button">Modifier</button>
+          <button type="button" class="m-6 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Modifier</button>
         </a>
       </td>
     </tr>
@@ -51,7 +52,7 @@
     </tbody>
   </table>
   <a href="${pageContext.request.contextPath}/plant/add">
-    <button type="button">Ajouter une plante</button>
+    <button type="button" class="m-6 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"">Ajouter une plante</button>
   </a>
 </body>
 </html>
